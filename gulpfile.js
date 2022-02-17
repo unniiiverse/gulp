@@ -1,7 +1,8 @@
 // Основной модуль
 import gulp from "gulp";
 // Импорт путей
-import { path } from "./gulp/config/path.js"
+import { path } from "./gulp/config/path.js";
+import { cleaner } from "./gulp/tasks/cleaner.js";
 
 // Делегирование значений в глобальную переменную
 global.app = {
@@ -18,7 +19,7 @@ function watcher() {
 }
 
 // Постоение сценаривев
-const dev = gulp.series(copy, watcher);
+const dev = gulp.series(cleaner, copy, watcher);
 
 // Выполенение сценария по умолчнаию 
 gulp.task('default', dev);
