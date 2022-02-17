@@ -12,5 +12,13 @@ global.app = {
 // Импорт задач
 import { copy } from "./gulp/tasks/copy.js";
 
+// Наблюдатель за изменениями
+function watcher() {
+    gulp.watch(path.watch.files, copy)
+}
+
+// Постоение сценаривев
+const dev = gulp.series(copy, watcher);
+
 // Выполенение сценария по умолчнаию 
-gulp.task('default', copy);
+gulp.task('default', dev);
