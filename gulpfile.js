@@ -2,17 +2,20 @@
 import gulp from "gulp";
 // Импорт путей
 import { path } from "./gulp/config/path.js";
-import { cleaner } from "./gulp/tasks/cleaner.js";
-import { html } from "./gulp/tasks/html.js";
+// Импорт общих плагинов
+import { plugins } from "./gulp/config/plugins.js";
 
 // Делегирование значений в глобальную переменную
 global.app = {
     path: path,
-    gulp: gulp
+    gulp: gulp,
+    plugins: plugins
 }
 
 // Импорт задач
 import { copy } from "./gulp/tasks/copy.js";
+import { cleaner } from "./gulp/tasks/cleaner.js";
+import { html } from "./gulp/tasks/html.js";
 
 // Наблюдатель за изменениями
 function watcher() {
