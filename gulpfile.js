@@ -17,14 +17,16 @@ import { copy } from "./gulp/tasks/copy.js"; // Сборка всех файло
 import { cleaner } from "./gulp/tasks/cleaner.js"; // Очистка папки перед следующим запуском сборщика
 import { html } from "./gulp/tasks/html.js"; // Всё связанное с HTML
 import { server } from "./gulp/tasks/server.js"; // Локальный сервер
+import { scss } from "./gulp/tasks/scss.js"; // Обработка SASS(SCSS) файлов
 
 // Наблюдатель за изменениями
 function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.scss, scss);
 }
 
-const mainTasks = gulp.parallel(copy, html)
+const mainTasks = gulp.parallel(copy, html, scss)
 
 // Постоение сценаривев
 const dev = gulp.series(cleaner, mainTasks, gulp.parallel(watcher, server));
