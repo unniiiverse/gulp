@@ -19,6 +19,7 @@ import { html } from "./gulp/tasks/html.js"; // Обработка HTML файл
 import { server } from "./gulp/tasks/server.js"; // Локальный сервер
 import { scss } from "./gulp/tasks/scss.js"; // Обработка SASS(SCSS) файлов
 import { js } from "./gulp/tasks/js.js"; // Обработка Java Script файлов
+import { images } from "./gulp/tasks/images.js"; // Оптимизация картинок
 
 // Наблюдатель за изменениями
 function watcher() {
@@ -26,9 +27,10 @@ function watcher() {
     gulp.watch(path.watch.html, html);
     gulp.watch(path.watch.scss, scss);
     gulp.watch(path.watch.js, js);
+    gulp.watch(path.watch.images, images);
 }
 
-const mainTasks = gulp.parallel(copy, html, scss, js);
+const mainTasks = gulp.parallel(copy, html, scss, js, images);
 
 // Постоение сценаривев
 const dev = gulp.series(cleaner, mainTasks, gulp.parallel(watcher, server));
