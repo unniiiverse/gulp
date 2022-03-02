@@ -21,6 +21,7 @@ import { scss } from "./gulp/tasks/scss.js"; // Обработка SASS(SCSS) ф
 import { js } from "./gulp/tasks/js.js"; // Обработка Java Script файлов
 import { images } from "./gulp/tasks/images.js"; // Оптимизация картинок
 import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js"; // .otf > .ttf > .woff & .woff2 | Обработка шрифтов
+import { svgSprive } from "./gulp/tasks/svgSprive.js"; // Создание svg спрайтов
 
 // Наблюдатель за изменениями
 function watcher() {
@@ -30,6 +31,8 @@ function watcher() {
     gulp.watch(path.watch.js, js);
     gulp.watch(path.watch.images, images);
 }
+
+export { svgSprive }
 
 // Обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
