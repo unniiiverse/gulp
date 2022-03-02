@@ -20,6 +20,7 @@ import { server } from "./gulp/tasks/server.js"; // Локальный серв�
 import { scss } from "./gulp/tasks/scss.js"; // Обработка SASS(SCSS) файлов
 import { js } from "./gulp/tasks/js.js"; // Обработка Java Script файлов
 import { images } from "./gulp/tasks/images.js"; // Оптимизация картинок
+import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js"; // .otf > .ttf > .woff & .woff2 | Обработка шрифтов
 
 // Наблюдатель за изменениями
 function watcher() {
@@ -30,7 +31,11 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-const mainTasks = gulp.parallel(copy, html, scss, js, images);
+// Обработка шрифтов
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+
+// Основные задачи
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 
 // Постоение сценаривев
 const dev = gulp.series(cleaner, mainTasks, gulp.parallel(watcher, server));

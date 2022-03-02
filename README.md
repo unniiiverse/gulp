@@ -55,4 +55,7 @@ __28/02/22__
 > add: image optimization
 >> Оптимизация картинок, создания webp.
 
+__2/03/22__
+> add: fonts assembler function
+>> Функция обработки файлов шрифтов # .otf > .ttf > .woff & .woff2, авто-добавление всех шрифтов с их кеглем в __scss/fonts.scss__
 </details>

@@ -3,6 +3,7 @@ import * as nodePath from "path";
 const rootFolder = nodePath.basename(nodePath.resolve());
 
 
+
 const buildFolder = `./dist`;
 const srcFolder = `./src`;
 
@@ -12,6 +13,7 @@ export const path = {
         css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
         images: `${buildFolder}/img/`,
+        fonts: `${buildFolder}/fonts/`,
         files: `${buildFolder}/files/`,
     },
     src: {
