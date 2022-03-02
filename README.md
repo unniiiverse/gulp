@@ -58,4 +58,8 @@ __28/02/22__
 __2/03/22__
 > add: fonts assembler function
 >> Функция обработки файлов шрифтов # .otf > .ttf > .woff & .woff2, авто-добавление всех шрифтов с их кеглем в __scss/fonts.scss__
+
+> add: svg sprites assembler function
+>> Функция создания svg-спрайтов из нескольких svg файлов. Для выполнения этой функции, в терминал нужно написать данную команду: 
+``` npm run svgSprive ```
 </details>
