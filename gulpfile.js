@@ -4,6 +4,8 @@ import gulp from "gulp";
 import { path } from "./gulp/config/path.js";
 // Импорт общих плагинов
 import { plugins } from "./gulp/config/plugins.js";
+// Импорт названия папки для выгрузки по FTP
+import { uploadFolderName } from "./gulp/config/ftp.js"
 
 // Делегирование значений в глобальную переменную
 global.app = {
@@ -11,7 +13,8 @@ global.app = {
     isDev: !process.argv.includes("--build"),
     path: path,
     gulp: gulp,
-    plugins: plugins
+    plugins: plugins,
+    uploadFolderName: uploadFolderName,
 }
 
 // Импорт задач
